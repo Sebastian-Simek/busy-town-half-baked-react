@@ -10,7 +10,29 @@ function App() {
   const [lightColor, setLightColor] = useState();
   const [lizardSize, setLizardSize] = useState(10);
   const [alienSize, setAlienSize] = useState(10);
+  const [vehicles, setVehicles] = useState(['car', 'bus', 'truck', 'motorcycle']);
   // traffic is complicated. It should be an array of strings that starts out as ['car', 'truck']
+
+  function handleCarClick() {
+    vehicles.push('car');
+
+    setVehicles(vehicles.slice());
+  }
+  function handleBusClick() {
+    vehicles.push('bus');
+    
+    setVehicles(vehicles.slice());
+  }
+  function handleTruckClick() {
+    vehicles.push('truck');
+    
+    setVehicles(vehicles.slice());
+  }
+  function handleMotorcycleClick() {
+    vehicles.push('motorcycle');
+    
+    setVehicles(vehicles.slice());
+  }
 
 
 
@@ -52,17 +74,17 @@ function App() {
       This prop should be an array of strings like ['car', 'truck', 'truck', 'car', 'bus'].
       Do you have something like that in state that you could pass as a vehicles prop? 
       */}
-      <VehicleList />
+      <VehicleList vehicles={vehicles}/>
       <div className='buttons'>
         {/* This part is weird */}
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'car' to the end */}
-        <button>Car</button>
+        <button onClick={handleCarClick}>Car</button>
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'bus' to the end */}
-        <button>Bus</button>
+        <button onClick={handleBusClick}>Bus</button>
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'truck' to the end */}
-        <button>Truck</button>
+        <button onClick={handleTruckClick}>Truck</button>
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'motorcycle' to the end */}
-        <button>Motorcycle</button>
+        <button onClick={handleMotorcycleClick}>Motorcycle</button>
       </div>
 
     </div>
